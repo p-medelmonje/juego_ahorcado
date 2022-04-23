@@ -1,4 +1,4 @@
-palabras5l = ["VAGON", "CANCER", "VIRGO", "ABEJA", "VERDE", "HIELO", "LIBRA",
+palabras = ["VAGON", "CANCER", "VIRGO", "ABEJA", "VERDE", "HIELO", "LIBRA",
               "GASTO", "APOLO", "APODO", "JOVEN", "AMADO", "AMADA", "MASAS",
               "MAZAS", "GATOS", "PERRO", "ASILO", "ARETE", "ATADO", "ATAUD",
               "ASPID", "ARBOL", "AROMA", "AREPA", "ARGAN", "ARIES", "LLAVE",
@@ -16,10 +16,8 @@ palabras5l = ["VAGON", "CANCER", "VIRGO", "ABEJA", "VERDE", "HIELO", "LIBRA",
               "TAURO", "PECES", "PITON", "PYTHON", "DULCE", "SEÑOR", "CERDO",
               "COLON", "TURCO", "TURCA", "PERSA", "TOKIO", "CHINO", "CHINA",
               "BARCO", "BUQUE", "BUCLE", "CANTO", "POETA", "LINDO", "LINDA",
-              "YEGUA", "BURRO", "BURRA", "LLAMA", "FUEGO", "NINFA"]
-
-
-palabras6l = ["PISCIS", "CASTRO", "PERROS", "PISTAS", "ABADIA", "AHORRO",
+              "YEGUA", "BURRO", "BURRA", "LLAMA", "FUEGO", "NINFA", "PISCIS",
+              "CASTRO", "PERROS", "PISTAS", "ABADIA", "AHORRO",
               "VIBORA", "AGOBIO", "AMARGO", "DULCES", "SALADO", "PASTEL",
               "SEÑORA", "FLAUTA", "CERDOS", "PALOMA", "PICHON", "ZORZAL",
               "ANTENA", "ATENEA", "ATENAS", "ANTISA", "ARABIA", "GENOVA",
@@ -27,13 +25,15 @@ palabras6l = ["PISCIS", "CASTRO", "PERROS", "PISTAS", "ABADIA", "AHORRO",
               "TOYOTA", "MADRID", "MONGOL", "CUMANO", "CUMANA", "POLACO",
               "POLACA", "VUELTA", "AMORIO", "AFINAR", "AFILAR", "ANIMAR",
               "LAZARO", "LESBOS", "TAMBOR", "CASTOR", "CANTOR", "ESPADA",
-              "ESCUDO", "LLAMAR", "LLAMAS"]
-
-palabras7l = ["GEMINIS", "ACUARIO", "ARBOLES", "JOVENES", "CULEBRA", "SEMILLA",
+              "ESCUDO", "LLAMAR", "LLAMAS", "GEMINIS", "ACUARIO", "ARBOLES",
+              "JOVENES", "CULEBRA", "SEMILLA",
               "TORTOLA", "PALOMAS", "ARDILLA", "CHALECO", "ESPARTA", "ISFAHAN",
               "COLOMBO", "COLOMBA", "BOLIVIA", "TARTARO", "TARTARA", "VIKINGO",
               "VIKINGA", "GENOVES", "CAVERNA", "POLONIA", "MASHHAD", "TEHERAN",
               "FRANCIA", "FRANCOS", "FRANCAS", "VENTANA", "CANCION", "CANTORA",
               "POETISA", "GORRION", "VUELTAS", "DALMATA", "CABALLO", "COBAYA",
-              "GLACIAR", ]
+              "GLACIAR"]
+
+
+
 

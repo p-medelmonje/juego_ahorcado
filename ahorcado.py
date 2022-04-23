@@ -36,7 +36,7 @@ aciertos = []
 
 abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 
-intentos = len(palabra) + 4
+intentos = len(palabra) + 6
 
 
 # Comienzo del juego. Se selecciona una palabra aleatoria
@@ -60,25 +60,24 @@ while intentos > 0 and len(letras_por_adivinar) > 0:
         
         if letra not in aciertos:
             
-            print("Acierto\n")
+            print("\nAcierto\n")
             letras_por_adivinar.remove(letra)
             aciertos.append(letra)
-            print(letras_por_adivinar)
             intentos -= 1
             print(f"Te queda(n) {intentos} intento(s)")
             
         else:
-            print("\nYa habías usado esa letra. Intenta con otra")
+            print("\nYa La letra ingresada ya está entre las acertadas. Intenta con otra")
                
     else:
-        print("Fallaste\n")
+        print("\nFallaste\n")
         intentos -= 1
-        print(f"Te queda(n) {intentos} intento(s)")
+        print(f"Te queda(n) {intentos} intento(s)\n")
 
 
 
 if len(letras_por_adivinar) == 0:
-    print("Has ganado. Acertaste todas las letras")
+    print(f"Has ganado. Acertaste todas las letras. La palabra es {palabra}")
     
 elif intentos == 0:
-    print("Has perdido. Más suerte para la próxima")
+    print(f"Has perdido. La palabra era {palabra}. Más suerte para la próxima")

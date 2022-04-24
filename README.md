@@ -4,4 +4,7 @@ Versión sencilla de un juego de ahorcado en Python, utilizando elementos aprend
 
 ### Registro de actividades
 
-**23 de abril -** Creados archivos iniciales. Primer prototipo funcionando.
+**23 de abril** 
+- Creados archivos iniciales. 
+- Primer prototipo funcionando.
+- Código en bucle infinito.

@@ -26,58 +26,70 @@ def obtenerPalabra(palabras):
     return palabra
 
 
-palabra = obtenerPalabra(palabras)
+while True:
 
-pal_lista = []
+    palabra = obtenerPalabra(palabras)
 
-letras_por_adivinar = set(palabra)
+    pal_lista = []
 
-aciertos = []
+    letras_por_adivinar = set(palabra)
 
-abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+    aciertos = []
 
-intentos = len(palabra) + 6
+    abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 
-
-# Comienzo del juego. Se selecciona una palabra aleatoria
-
-print("Bienvenido(a) al juego del ahorcado")
-print(f"\nLa palabra tiene {len(palabra)} letras y tienes {intentos} intentos")
+    intentos = len(palabra) * 2
 
 
-while intentos > 0 and len(letras_por_adivinar) > 0:
-    
-    pal_lista = [letra if letra in aciertos else '_' for letra in palabra]
-    print("\n", pal_lista)
+    # Comienzo del juego. Se selecciona una palabra aleatoria
 
-    letra = input("\nIngresa una letra: ").upper()
+    print("BIENVENIDO(A) AL JUEGO DEL AHORCADO")
+    print(f"\nLa palabra tiene {len(palabra)} letras y tienes {intentos} intentos")
 
-    while not letra in abecedario:
-        print("Ingreso inválido")
-        letra = input("Ingresa una letra: ").upper()
+
+    while intentos > 0 and len(letras_por_adivinar) > 0:
         
-    if letra in palabra:
-        
-        if letra not in aciertos:
+        pal_lista = [letra if letra in aciertos else '_' for letra in palabra]
+        print("\n", pal_lista)
+
+        letra = input("\nIngresa una letra: ").upper()
+
+        while not letra in abecedario:
+            print("Ingreso inválido")
+            letra = input("Ingresa una letra: ").upper()
             
-            print("\nAcierto\n")
-            letras_por_adivinar.remove(letra)
-            aciertos.append(letra)
-            intentos -= 1
-            print(f"Te queda(n) {intentos} intento(s)")
+        if letra in palabra:
             
+            if letra not in aciertos:
+                
+                print("\nAcierto\n")
+                letras_por_adivinar.remove(letra)
+                aciertos.append(letra)
+                intentos -= 1
+                print(f"Te queda(n) {intentos} intento(s)")
+                
+            else:
+                print("\nYa La letra ingresada ya está entre las acertadas. Intenta con otra")
+                   
         else:
-            print("\nYa La letra ingresada ya está entre las acertadas. Intenta con otra")
-               
-    else:
-        print("\nFallaste\n")
-        intentos -= 1
-        print(f"Te queda(n) {intentos} intento(s)\n")
+            print("\nFallaste\n")
+            intentos -= 1
+            print(f"Te queda(n) {intentos} intento(s)\n")
 
 
 
-if len(letras_por_adivinar) == 0:
-    print(f"Has ganado. Acertaste todas las letras. La palabra es {palabra}")
+    if len(letras_por_adivinar) == 0:
+        print(f"\nHas ganado. Acertaste todas las letras. La palabra es {palabra}")
+        
+    elif intentos == 0:
+        print(f"\nHas perdido. La palabra era {palabra}. Más suerte para la próxima")
+        
+    continuar = input("\n¿Volver a jugar? ('s' para sí y cualquier otra opción para salir): ").upper()
     
-elif intentos == 0:
-    print(f"Has perdido. La palabra era {palabra}. Más suerte para la próxima")
+    if continuar == "S":
+        print("\nVolviendo a empezar...\n")
+        
+    else:
+        print("\nHas elegido salir")
+        exit()
+        break

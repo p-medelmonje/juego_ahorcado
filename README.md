@@ -1,6 +1,6 @@
 ## Juego del ahorcado
 
-Versión sencilla de un juego de ahorcado en Python, utilizando elementos aprendidos en un [video] (https://www.youtube.com/watch?v=tWnyBD2src0&t=4519s) del canal freeCodeCamp en español.
+Versión sencilla de un juego de ahorcado en Python, utilizando elementos aprendidos en un [video](https://www.youtube.com/watch?v=tWnyBD2src0&t=4519s) del canal freeCodeCamp en español.
 
 ### Registro de actividades
 

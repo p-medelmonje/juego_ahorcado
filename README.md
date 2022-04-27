@@ -8,3 +8,6 @@ Versión sencilla de un juego de ahorcado en Python, utilizando elementos aprend
 - Creados archivos iniciales. 
 - Primer prototipo funcionando.
 - Código en bucle infinito.
+
+**26 de abril**
+- Creado cuaderno Jupyter Notebook para crear una versión en TkInter.

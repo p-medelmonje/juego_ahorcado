@@ -18,3 +18,7 @@ NOTA: A pesar de que me inspiré en ese video para hacer el juego del ahorcado y
 - Añadido código para calificar al usuario en función del porcentaje restante de intentos con respecto al largo de la palabra a adivinar. Está escrito para facilitar posteriormente el guardar esos datos en una BD.
 - El programa ya no admite ingresos de más de una letra o ninguna letra.
 - Bloques condicionales reacomodados dentro del bucle infinito.
+
+**03/05/2022**
+- Añadida BD en Sqlite3 para los puntajes.
+- Falta: Mostrar solo un máximo de 10 puntajes, para que la lista no se haga muy larga cuando haya muchos.

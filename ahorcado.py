@@ -42,47 +42,72 @@ while True:
 
 
     # Comienzo del juego. Se selecciona una palabra aleatoria
-
+    
+    print("===================================")
     print("BIENVENIDO(A) AL JUEGO DEL AHORCADO")
-    print(f"\nLa palabra tiene {len(palabra)} letras y tienes {intentos} intentos")
-
-
-    while intentos > 0 and len(letras_por_adivinar) > 0:
+    print("===================================")
+    
+    print("""\nNOTA: El juego puede ser muy fácil; tan fácil que una palabra puede
+tener una o más letras varias veces dentro de la palabra, pero puede
+ser tan despiadadamente difícil que simplemente no vas a poder adivinar.""")
+    
+    while intentos > 0: #and len(letras_por_adivinar) > 0:
         
         pal_lista = [letra if letra in aciertos else '_' for letra in palabra]
         print("\n", pal_lista)
+        print(f"\n{intentos} Intento(s) restante(s)")
 
         letra = input("\nIngresa una letra: ").upper()
 
-        while not letra in abecedario:
-            print("Ingreso inválido")
-            letra = input("Ingresa una letra: ").upper()
+        while not letra in abecedario or len(letra) > 1 or len(letra) == 0:
+            print("\nIngreso inválido")
+            letra = input("\nIngresa una letra: ").upper()
             
         if letra in palabra:
             
             if letra not in aciertos:
                 
-                print("\nAcierto\n")
+                print("\nACERTASTE, al fin...")
                 letras_por_adivinar.remove(letra)
                 aciertos.append(letra)
                 intentos -= 1
-                print(f"Te queda(n) {intentos} intento(s)")
+                                
+                if len(letras_por_adivinar) == 0:
+                    print(f"\nHas ganado. Acertaste en todas las letras. La palabra es {palabra}\n")
+                    print(f"""Resultado:
+Largo de la palabra: {len(palabra)}
+Intentos restantes: {intentos}""")
+                    
+                    # Calificación al jugador
+                    
+                    if intentos <= len(palabra) * 0.3:
+                        calificacion = "El horror"
+                        
+                        print(f"Calificación: {calificacion}")
+                        
+                    elif intentos > len(palabra) * 0.3 and intentos <= len(palabra) * 0.6:
+                        calificacion = "Decente"
+                        print(f"Calificación: {calificacion}")
+                        
+                    else:
+                        calificacion = "Legendario(a)"
+                        print(f"Calificación: {calificacion}")
+                        
+                    break
                 
             else:
                 print("\nYa La letra ingresada ya está entre las acertadas. Intenta con otra")
                    
         else:
-            print("\nFallaste\n")
+            print("\nFALLASTE")
             intentos -= 1
-            print(f"Te queda(n) {intentos} intento(s)\n")
-
-
-
-    if len(letras_por_adivinar) == 0:
-        print(f"\nHas ganado. Acertaste todas las letras. La palabra es {palabra}")
-        
-    elif intentos == 0:
-        print(f"\nHas perdido. La palabra era {palabra}. Más suerte para la próxima")
+            
+        if intentos < len(palabra) * 0.5:
+            print("\nApúrate, que se te acaban los intentos... tu abuela habría ganado media hora antes")
+                       
+        if intentos == 0:
+            print(f"\nPERDISTE. La palabra era {palabra}. Así de fácil era.\nCalificación: -10")
+            break
         
     continuar = input("\n¿Volver a jugar? ('s' para sí y cualquier otra opción para salir): ").upper()
     
@@ -92,4 +117,4 @@ while True:
     else:
         print("\nHas elegido salir")
         exit()
-        break
+        

@@ -1,22 +1,6 @@
-"""
-Juego del ahorcado
-
-Lo que debería hacer el programa:
-
-- Seleccionar una palabra al azar de una lista y establecer la cantidad
-de intentos según el largo de la palabra.
-
-- El jugador ingresa una letra para tratar de acertar la palabra. A medida que
-vaya acertando, el programa muestra las letras acertadas y su posición en la
-palabra.
-
-- Si el jugador falla o acierta, se resta al contador de intentos.
-
-- El juego termina cuando el jugador ha acertado a la palabra o haya gastado
-todos sus intentos.
-"""
-
 import random
+import sqlite3 as sql
+import os
 
 from palabras import palabras
 
@@ -25,6 +9,56 @@ def obtenerPalabra(palabras):
     palabra = random.choice(palabras)
     return palabra
 
+def crearTabla():
+    conn = sql.connect("puntuaciones.db")
+    cursor = conn.cursor()
+    cursor.execute(
+        """CREATE TABLE if not exists puntajes(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            Nombre TEXT NOT NULL,
+            Largo_palabra INTEGER NOT NULL,
+            Intentos_restantes INTEGER NOT NULL,
+            Calificacion TEXT NOT NULL)
+        """
+        )
+    print("Base de datos y tabla creadas exitosamente\n")
+    conn.commit()
+    conn.close()
+    
+
+def conectarBD():
+    if not os.path.isfile("puntuaciones.db"):
+        print("Creando base de datos para las puntuaciones...")
+        conn = sql.connect("puntuaciones.db")
+        crearTabla()
+#         conn.commit()
+#         conn.close()        
+
+def guardarPuntaje(nombre):
+    conn = sql.connect("puntuaciones.db")
+    cursor = conn.cursor()
+    instruccion =f"INSERT INTO puntajes VALUES(null,'{nombre}',{len(palabra)},{intentos},'{calificacion}')"
+    cursor.execute(instruccion)
+    conn.commit()
+    conn.close()
+    
+def mostrarPuntajes():
+    conn = sql.connect("puntuaciones.db")
+    cursor = conn.cursor()
+    cursor.execute("""SELECT Nombre, Largo_palabra, Intentos_restantes, Calificacion
+    FROM puntajes ORDER BY id DESC""")
+    datos = cursor.fetchall()
+    conn.commit()
+    conn.close()
+    print("\nPUNTAJES")
+    print("Nombre - Largo palabra - Int. restantes - Calificación\n")
+    for l in datos:
+        print(l)
+
+# Comienza la ejecución del programa
+
+conectarBD()
+# crearTabla()
 
 while True:
 
@@ -48,7 +82,7 @@ while True:
     print("===================================")
     
     print("""\nNOTA: El juego puede ser muy fácil; tan fácil que una palabra puede
-tener una o más letras varias veces dentro de la palabra, pero puede
+tener una o más letras varias veces dentro de la palabra, o también puede
 ser tan despiadadamente difícil que simplemente no vas a poder adivinar.""")
     
     while intentos > 0: #and len(letras_por_adivinar) > 0:
@@ -90,19 +124,26 @@ Intentos restantes: {intentos}""")
                         print(f"Calificación: {calificacion}")
                         
                     else:
-                        calificacion = "Legendario(a)"
+                        calificacion = "Experto(a)"
                         print(f"Calificación: {calificacion}")
+                        
+                    # Guardar información en base de datos
+                    
+                    print("\nEscribe tu nombre para guardar la puntuación")
+                    nombre = input("> ")
+                    guardarPuntaje(nombre)
+                    mostrarPuntajes()                 
                         
                     break
                 
             else:
-                print("\nYa La letra ingresada ya está entre las acertadas. Intenta con otra")
+                print("\nYa La letra ingresada ya está entre los aciertos. Intenta con otra")
                    
         else:
             print("\nFALLASTE")
             intentos -= 1
             
-        if intentos < len(palabra) * 0.5:
+        if intentos < len(palabra) * 0.5 and intentos > len(palabra) * 0.25:
             print("\nApúrate, que se te acaban los intentos... tu abuela habría ganado media hora antes")
                        
         if intentos == 0:

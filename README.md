@@ -17,3 +17,4 @@ NOTA: A pesar de que me inspiré en ese video para hacer el juego del ahorcado y
 **02/05/2022**
 - Añadido código para calificar al usuario en función del porcentaje restante de intentos con respecto al largo de la palabra a adivinar. Está escrito para facilitar posteriormente el guardar esos datos en una BD.
 - El programa ya no admite ingresos de más de una letra o ninguna letra.
+- Bloques condicionales reacomodados dentro del bucle infinito.

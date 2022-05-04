@@ -50,15 +50,17 @@ def mostrarPuntajes():
     datos = cursor.fetchall()
     conn.commit()
     conn.close()
-    print("\nPUNTAJES")
-    print("Nombre - Largo palabra - Int. restantes - Calificación\n")
-    for l in datos:
-        print(l)
+    while len(datos) > 10:
+        datos.pop(-1)
+    else:    
+        print("\nPUNTAJES")
+        print("Nombre - Largo palabra - Int. restantes - Calificación\n")
+        for l in datos:
+            print(l)            
 
 # Comienza la ejecución del programa
 
 conectarBD()
-# crearTabla()
 
 while True:
 
@@ -132,8 +134,8 @@ Intentos restantes: {intentos}""")
                     print("\nEscribe tu nombre para guardar la puntuación")
                     nombre = input("> ")
                     guardarPuntaje(nombre)
-                    mostrarPuntajes()                 
-                        
+                    mostrarPuntajes()
+                                            
                     break
                 
             else:

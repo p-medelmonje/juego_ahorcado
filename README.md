@@ -21,4 +21,6 @@ NOTA: A pesar de que me inspiré en ese video para hacer el juego del ahorcado y
 
 **03/05/2022**
 - Añadida BD en Sqlite3 para los puntajes.
-- Falta: Mostrar solo un máximo de 10 puntajes, para que la lista no se haga muy larga cuando haya muchos.
+
+**04/05/2022**
+- El programa muestra los 10 resultados más recientes, para evitar llenar la pantalla si es que hay muchos. Se muestra el último al principio, luego el penúltimo segundo, y así sustantivamente.
